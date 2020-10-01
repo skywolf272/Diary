@@ -1,0 +1,38 @@
+﻿<Window x:Class="DiaryU.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiaryU"
+        mc:Ignorable="d"
+        Title="DairyU" Height="562" Width="738" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Grid Margin="0,0,4,3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <Calendar HorizontalAlignment="Left" VerticalAlignment="Top" Height="168" Width="179" Grid.ColumnSpan="2"/>
+
+        <TextBox x:Name="TextBoxContent1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="531" Margin="463,0,0,0" VerticalAlignment="Top" Width="265">
+        </TextBox>
+
+        <Canvas Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="521" Margin="184,0,0,0" VerticalAlignment="Top" Width="274">
+            <Button Content="Создать новую тему" Canvas.Left="10" Canvas.Top="10" Width="135" Height="32" Click="NewTheme"/>
+            <Button Content="Удалить тему" Canvas.Left="179" Canvas.Top="10" Width="85" Height="32" Click="DeleteTheme"/>
+            <StackPanel x:Name="StackPanelUs" Height="449" Canvas.Left="10" Canvas.Top="62" Width="254">
+                <Button Content="Общая информация" Height="28"/>
+            </StackPanel>
+        </Canvas>
+
+        <StackPanel x:Name="StackPanelDaily" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="281" Margin="0,240,0,0" VerticalAlignment="Top" Width="179"/>
+        <Button Grid.ColumnSpan="2" Content="Тема на день" HorizontalAlignment="Left" Height="21" Margin="10,207,0,0" VerticalAlignment="Top" Width="88" Click="NewThemeDaily"/>
+        <Button Grid.ColumnSpan="2" Content="Удалить" HorizontalAlignment="Left" Margin="112,207,0,0" VerticalAlignment="Top" Width="61" Height="21" Click="DeleteThemeDaily"/>
+        <DatePicker x:Name="DataPicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="174" Margin="5,168,0,0" IsTodayHighlighted="True" SelectedDateChanged="DataPicker1_SelectedDateChanged" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>
