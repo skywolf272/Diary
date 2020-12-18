@@ -5,34 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiaryU"
         mc:Ignorable="d"
-        Title="DairyU" Height="562" Width="738" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="DairyU" Height="562" Width="737" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF454E76"/>
+            <GradientStop Color="#FF2C2C2C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    
     <Grid Margin="0,0,4,3">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-
-        <Calendar HorizontalAlignment="Left" VerticalAlignment="Top" Height="168" Width="179" Grid.ColumnSpan="2"/>
-
-        <TextBox x:Name="TextBoxContent1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="531" Margin="463,0,0,0" VerticalAlignment="Top" Width="265">
+        
+        
+        <Calendar HorizontalAlignment="Left" VerticalAlignment="Top" Height="168" Width="194" Margin="0,27,0,0" Background="#FF84A4CB" BorderThickness="2"/>
+        <Image Source="/Source/ExitCross.png" Margin="710,8,8,536" Width="15" Height="15" Opacity="0.8" OpacityMask="#FF3BAA64" MouseDown="Image_MouseDown" />
+        <Polygon Points="261,0 269,10 469,10 477,0"  Opacity="0.8" Fill="#FF84A4CB" Grid.ColumnSpan="2" Margin="0,0,185,0" Stroke="#FFAFB7FF"/>
+        
+        <TextBox x:Name="TextBoxContent1" HorizontalAlignment="Left" Height="518" Margin="199,31,0,0" VerticalAlignment="Top" Width="275" TextWrapping="Wrap" KeyDown="GoToNewLine" BorderBrush="#FFAFB7FF" BorderThickness="2">
+            <TextBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
+            </TextBox.Background>
         </TextBox>
 
-        <Canvas Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="521" Margin="184,0,0,0" VerticalAlignment="Top" Width="274">
-            <Button Content="Создать новую тему" Canvas.Left="10" Canvas.Top="10" Width="135" Height="32" Click="NewTheme"/>
-            <Button Content="Удалить тему" Canvas.Left="179" Canvas.Top="10" Width="85" Height="32" Click="DeleteTheme"/>
-            <StackPanel x:Name="StackPanelUs" Height="449" Canvas.Left="10" Canvas.Top="62" Width="254">
-                <Button Content="Общая информация" Height="28"/>
+        <Canvas HorizontalAlignment="Left" Height="491" Margin="471,68,0,0" VerticalAlignment="Top" Width="262">
+            <Button Content="Создать новую тему" Canvas.Left="10" Width="127" Height="32" Click="NewTheme" Foreground="Black" BorderBrush="#FFAFB7FF" Background="#FF84A4CB" BorderThickness="2"/>
+            <Button Content="Удалить тему" Canvas.Left="174" Width="83" Height="32" Click="DeleteTheme" BorderBrush="#FFAFB7FF" Background="#FF84A4CB" BorderThickness="2"/>
+            <StackPanel x:Name="StackPanelUs" Height="438" Canvas.Left="10" Canvas.Top="46" Width="252">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FFAC93FF" Opacity="0.2"/>
+                </StackPanel.Background>
+                <Button Content="Общая информация" Height="28" BorderBrush="#FFAFB7FF" Background="#FF84A4CB" BorderThickness="2"/>
+
             </StackPanel>
         </Canvas>
 
-        <StackPanel x:Name="StackPanelDaily" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="281" Margin="0,240,0,0" VerticalAlignment="Top" Width="179"/>
-        <Button Grid.ColumnSpan="2" Content="Тема на день" HorizontalAlignment="Left" Height="21" Margin="10,207,0,0" VerticalAlignment="Top" Width="88" Click="NewThemeDaily"/>
-        <Button Grid.ColumnSpan="2" Content="Удалить" HorizontalAlignment="Left" Margin="112,207,0,0" VerticalAlignment="Top" Width="61" Height="21" Click="DeleteThemeDaily"/>
-        <DatePicker x:Name="DataPicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="174" Margin="5,168,0,0" IsTodayHighlighted="True" SelectedDateChanged="DataPicker1_SelectedDateChanged" Grid.ColumnSpan="2"/>
+        <StackPanel x:Name="StackPanelDaily" HorizontalAlignment="Left" Height="281" Margin="0,268,0,0" VerticalAlignment="Top" Width="194">
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FFAC93FF" Opacity="0.2"/>
+            </StackPanel.Background>
+        </StackPanel>
+        <Button Content="Тема на день" HorizontalAlignment="Left" Height="21" Margin="5,234,0,0" VerticalAlignment="Top" Width="99" Click="NewThemeDaily" BorderBrush="#FFAFB7FF" Background="#FF84A4CB" BorderThickness="2"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="133,234,0,0" VerticalAlignment="Top" Width="61" Height="21" Click="DeleteThemeDaily" BorderBrush="#FFAFB7FF" Background="#FF84A4CB" BorderThickness="2"/>
+        <DatePicker x:Name="DataPicker1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="189" Margin="5,195,0,0" IsTodayHighlighted="True" SelectedDateChanged="DataPicker1_SelectedDateChanged">
+            <DatePicker.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF84A4CB" Offset="1"/>
+                </LinearGradientBrush>
+            </DatePicker.BorderBrush>
+        </DatePicker>
 
     </Grid>
+
 </Window>

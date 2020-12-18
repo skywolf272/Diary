@@ -156,7 +156,7 @@ namespace DiaryU
                     var title = context.TitleClasses.FirstOrDefault(al => al.Id == id_to_change);
                     title.title_content = title_list[tag_for_button_theme].title_content;
                     context.SaveChanges();
-                    MessageBox.Show("Сохранено вроде");
+                    //MessageBox.Show("Сохранено вроде");
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace DiaryU
                     var titleDai = context.title_Dailies.FirstOrDefault(alo => alo.Id == id_to_changeD);
                     titleDai.title_contentD = title_daily_list[tag_for_button_theme_daily].title_contentD;
                     context.SaveChanges();
-                    MessageBox.Show("Сохранено вроде но другое");
+                    //MessageBox.Show("Сохранено вроде но другое");
                 }
             }
         }
@@ -221,6 +221,24 @@ namespace DiaryU
             tag_for_button_theme_daily = Convert.ToInt32(btn.Tag);
             TextBoxContent1.Text = title_daily_list[Convert.ToInt32(btn.Tag)].title_contentD;
             MessageBox.Show(tag_for_button_theme_daily.ToString());
+        }
+
+        private void GoToNewLine(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //int index_selection = TextBoxContent1.SelectionStart;
+                //TextBoxContent1.Text += "\r\n";
+                //TextBoxContent1.SelectionStart = index_selection + 3;
+
+                TextBoxContent1.SelectedText = "\r\n";
+
+            }
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
         }
     }
 }
